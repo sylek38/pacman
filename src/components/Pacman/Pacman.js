@@ -26,7 +26,7 @@ class Pacman extends Component {
 
         const currentTop = this.state.position.top;
         const currentLeft = this.state.position.left;
-        const { step } = this.props;
+        const { step, border, size, topScoreBoardHeight } = this.props;
 
         // 39 ArrowRight | 68 D
         // 40 ArrowDown | 83 S
@@ -37,7 +37,8 @@ class Pacman extends Component {
             this.setState({
 
                 position: {
-                    top: currentTop - step,
+                    // top: currentTop - step,
+                    top: Math.max(currentTop - step, 0),
                     left: currentLeft
                 },
 
@@ -50,7 +51,8 @@ class Pacman extends Component {
 
                 position: {
                     top: currentTop,
-                    left: currentLeft + step
+                    // left: currentLeft + step
+                    left: Math.min(currentLeft + step, window.innerWidth - border - size )
                 },
 
                 direction: 'right'
@@ -61,12 +63,12 @@ class Pacman extends Component {
             this.setState({
 
                 position: {
-                    top: currentTop + step,
+                    // top: currentTop + step,
+                    top: Math.min(currentTop + step, window.innerHeight - border - size - topScoreBoardHeight),
                     left: currentLeft
                 },
 
                 direction: 'down'
-                
             });
 
         } else if (event.key === 'ArrowLeft' || event.key === "a") {
@@ -74,7 +76,8 @@ class Pacman extends Component {
 
                 position: {
                     top: currentTop,
-                    left: currentLeft - step
+                    // left: currentLeft - step
+                    left: Math.max(currentLeft - step, 0),
                 },
 
                 direction: 'left'
