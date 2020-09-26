@@ -7,8 +7,8 @@ class Pacman extends Component {
     state = {
         direction: 'right',
         position: {
-            top: 50,
-            left: 50,
+            top: 0,
+            left: 0,
         }
     }
 
@@ -23,6 +23,37 @@ class Pacman extends Component {
 
     handleKeyDown = (event) => {
         console.log(event.keyCode, event.key);
+
+        const currentTop = this.state.position.top;
+        const currentLeft = this.state.position.left;
+
+        // 39 ArrowRight | 68 D
+        // 40 ArrowDown | 83 S
+        // 37 ArrowLeft | 65 A
+        // 38 ArrowUp | 87 W
+
+        if (event.key === 'ArrowUp' || event.key === 'w') {
+            this.setState({
+                direction: 'up'
+            });
+
+        } else if (event.key === 'ArrowRight' || event.key === 'd') {
+            this.setState({
+                direction: 'right'
+            });
+
+        } else if (event.key === 'ArrowDown' || event.key === "s") {
+            this.setState({
+                direction: 'down'
+            });
+
+        } else if (event.key === 'ArrowLeft' || event.key === "a") {
+            this.setState({
+                direction: 'left'
+            });
+
+        }
+
     }
 
     render() {
