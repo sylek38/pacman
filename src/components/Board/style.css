@@ -2,6 +2,7 @@
     position: relative;
     background-color: #34495e;
     border: 10px solid #c0392b;
-    height: calc(100vh - 60px);
-    width: calc(100vh - 20px);
+    height: calc(100vh - 50px - 10px - 10px); /*header-border-border*/
+    width: calc(100vw - 10px - 10px); /*border-border*/
+    /* max-width: 100%; */
 }
