@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
-import logo from './logo.svg';
+import Board from './components/Board';
+// import logo from './logo.svg';
 import './App.css';
 
 function App() {
 
-  const [score, setScore] = useState(2);
+  const [score, setScore] = useState(0);
 
   return (
-    <div className="header">
+    <div className="App">
      <Header score = {score} />
-     {/* {<Board />} */}
+     <Board />
     </div>
   );
 }
